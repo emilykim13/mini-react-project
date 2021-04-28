@@ -8,3 +8,8 @@
 - fetch request POST/PATCH/DELETE
 - if DELETE, we need to unmount
 
+# files we need
+- add fetches to app.js 
+<!-- - characterHeader
+- characterCard
+- characterForm -->
