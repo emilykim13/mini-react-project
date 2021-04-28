@@ -44,24 +44,45 @@ class App extends React.Component {
   };
 
 
+  burnCharacter = (character) => {
+    fetch(`http://localhost:3001/characters/${character.id}`, {
+      method: "PATCH",
+      headers: {
+        'Content-Type' : 'application/json',
+        'Accept' : 'application/json'
+      },
+      body: JSON.stringify({
+        burned: !character.burned
+      })
+    })
+    .then(res => res.json())
+    .then(burnedCharacter => {
+      this.setState({
+        characters: this.state.characters.map((character) => character.id === burnedCharacter.id ? burnedCharacter : character)
+      })
+    })
+
+  }
+
 
   render() {
     return (
       <div className="App"> 
-        {/* <h1>hi</h1> */}
         <CharacterHeader />
         <CharacterForm newCharacter={this.addCharacter}/>
         <Section 
-          name="Not Burned"
+          name="SAFE"
           charactersArr={this.state.characters.filter(
             (character) => character.burned === false
           )}
+          burnCharacter={this.burnCharacter}
         />
         <Section 
-          name="Burned"
+          name="BURNED"
           charactersArr={this.state.characters.filter(
             (character) => character.burned === true
           )}
+          burnCharacter={this.burnCharacter}
         />
       </div>
     // either in the burn book or not 
