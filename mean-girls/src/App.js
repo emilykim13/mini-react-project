@@ -22,12 +22,35 @@ class App extends React.Component {
     })
   };
 
+  addCharacter = (characterArg) => {
+    // console.log(characterArg)
+
+    let reqPackage = {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(characterArg)
+    }
+    fetch('http://localhost:3001/characters', reqPackage)
+    .then(res => res.json())
+    .then(postedCharacter => {
+      this.setState({
+        characters: [...this.state.characters, postedCharacter],
+      });
+    })
+
+  };
+
+
+
   render() {
     return (
       <div className="App"> 
         {/* <h1>hi</h1> */}
         <CharacterHeader />
-        {/* <CharacterForm /> */}
+        <CharacterForm newCharacter={this.addCharacter}/>
         <Section 
           name="Not Burned"
           charactersArr={this.state.characters.filter(
