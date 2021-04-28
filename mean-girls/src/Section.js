@@ -3,10 +3,12 @@ import CharacterCard from "./CharacterCard"
 
 const Section = (props) => {
     let backgroundStyle = () => {
-        if(props.name == "Not Burned"){
-            return {backgroundColor: 'green'}
+        if(props.name == "SAFE"){
+            return {backgroundColor: 'pink'}
         }else{
-            return {backgroundColor: 'red'}
+            return {backgroundColor: 'black',
+            color: "red"
+        }
         }
     }
 
@@ -14,7 +16,10 @@ const Section = (props) => {
     return (
         <div style={backgroundStyle()}>
             <h1>{props.name}</h1>
-            {console.log("props in Section.js", props)}
+            {/* {console.log("props in Section.js", props)} */}
+            {props.charactersArr.map((character) => {
+                return <CharacterCard character={character} burnCharacter={props.burnCharacter}/>
+            })}
         </div>
     )
 }
