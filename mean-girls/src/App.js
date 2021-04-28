@@ -25,10 +25,21 @@ class App extends React.Component {
   render() {
     return (
       <div className="App"> 
-        <h1>hi</h1>
-        {/* <CharacterHeader />
-        <CharacterForm />
-        <Section /> */}
+        {/* <h1>hi</h1> */}
+        <CharacterHeader />
+        {/* <CharacterForm /> */}
+        <Section 
+          name="Not Burned"
+          charactersArr={this.state.characters.filter(
+            (character) => character.burned === false
+          )}
+        />
+        <Section 
+          name="Burned"
+          charactersArr={this.state.characters.filter(
+            (character) => character.burned === true
+          )}
+        />
       </div>
     // either in the burn book or not 
     )
