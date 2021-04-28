@@ -64,6 +64,15 @@ class App extends React.Component {
 
   }
 
+  deleteCharacter = (characterX) => {
+    fetch(`http://localhost:3001/characters/${characterX.id}`, {
+      method: "DELETE"
+    })
+    this.setState({
+      characters: this.state.characters.filter((character) => {return character != characterX})
+    })
+  }
+
 
   render() {
     return (
@@ -76,6 +85,7 @@ class App extends React.Component {
             (character) => character.burned === false
           )}
           burnCharacter={this.burnCharacter}
+          deleteCharacter={this.deleteCharacter}
         />
         <Section 
           name="BURNED"
@@ -83,6 +93,7 @@ class App extends React.Component {
             (character) => character.burned === true
           )}
           burnCharacter={this.burnCharacter}
+          deleteCharacter={this.deleteCharacter}
         />
       </div>
     // either in the burn book or not 

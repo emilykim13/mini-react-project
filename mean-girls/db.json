@@ -48,13 +48,13 @@
       "image": "https://www.pinkvilla.com/files/styles/contentpreview/public/mean-girls-jonathan-bennett-aka-aaron-samuels-weighs-in-on-reunion.jpg?itok=iYI5lUOs",
       "quote": "'Stupid girls make up rumors because they're bored with their own lives.'",
       "burned": false
-    },
+    },    
     {
-      "id": 8,
-      "name": "Ron Duvall",
-      "image": "https://assets.mycast.io/characters/principal-ron-duvall-460150-normal.jpg?1584381133",
-      "quote": "'Miss Smith, why would Regina refer to herself as a...'fugly slut?''",
-      "burned": true
+        "id": 8,
+        "name": "Ron Duvall",
+        "image": "https://assets.mycast.io/characters/principal-ron-duvall-460150-normal.jpg?1584381133",
+        "quote": "'Miss Smith, why would Regina refer to herself as a...'fugly slut?''",
+        "burned": true
     }
   ]
 }

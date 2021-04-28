@@ -4,6 +4,7 @@ class CharacterCard extends React.Component {
 
     clickHandler = () => {
         console.log("testing")
+        this.props.deleteCharacter(this.props.character)
     }
 
     render(){
@@ -14,7 +15,7 @@ class CharacterCard extends React.Component {
                 <p>{this.props.character.quote}</p>
                 <img src={this.props.character.image} style={{width:"250px"}}></img>
                 <br/>
-                {/* <button onClick={this.clickHandler}>Click</button> */}
+                <button onClick={this.clickHandler}>DELETE</button>
                 <br/>
                 <br/>
             </div>
